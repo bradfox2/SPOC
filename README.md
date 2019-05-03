@@ -1,8 +1,33 @@
 # Smart Performance Objective and Criteria Coding (SPOC)
 Automated Application of the INPO Performance Objective and Criteria Codes
 
-# License 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+```
+ License 
+Copyright (C) Arizona Public Service - All Rights Reserved 
+
+Any referenced libraries utilized within are licensed per original author. 
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Written by Jerrold Vincent <jerrold.vincent@aps.com> and Bradley Fox
+<bradley.fox@aps.com> September 2018
+```
+
+# Purpose
+This repo contains products produced during the SPOC hackathon at APS/Palo Verde corporate offices on Sep 11/12, 2018. Products produced were:
+
+1.	Docker Container that:
+    *  Encapsulates computing environment required to run scripts
+    *  Creates and hosts a REST API that returns POC Codes
+2.	Batch POC Coding Script with command line interface
+3.	Report Generation Script for monitoring most increasing/decreasing POC Counts
+
 
 # Dependencies
 1.	Docker
