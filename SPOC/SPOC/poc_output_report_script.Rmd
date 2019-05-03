@@ -1,0 +1,77 @@
+---
+title: "POC Code Trend Report"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+#!/usr/bin/env Rscript
+library(lubridate)
+library(data.table)
+library(dplyr)
+library(zoo)
+
+input_file <- "data/crs/test_crs.csv"
+output_file <- "output.csv"
+short_time <- 2
+long_time <- 7
+date_back <- "2017-01-01"
+
+#command line argument parsing
+args = commandArgs()
+
+# test if there is at least one argument: if not, display a warning and use
+# defaults
+if (length(args)==0) {
+  warning("default input output files will be used, and a 30 day and 1 year moving average for trending")
+} else if (length(args)==5) {
+  # default output file
+  input_file <- args[1] 
+  output_file <- args[2]
+  short_time <- args[3]
+  long_time <- args[4]
+  date_back <- args[5]
+  
+}
+
+knitr::opts_chunk$set(echo = TRUE)
+commandArgs <- function(...)(c(input_file, output_file, short_time, long_time, date_back))
+source('poc_code_date_trending_experiment.R')
+print(codes_to_plot)
+```
+
+This report contains charts for the five best and worst POCs codes which `r short_time` moving average is trending the furthest from the `r long_time` simple moving average.  All numeric values are summations of probabilities and thus are unitless, and should be interpreted as relative to each other.
+
+#POC Codes most decreasing in usage
+```{r echo = FALSE}
+getting_better_ <- abs(getting_better)
+rownames(getting_better_)<-NULL
+knitr::kable(getting_better_)
+```
+
+```{r echo=FALSE}
+label <- " Day SMA"
+for(i in colnames(getting_better)){
+  #print(i)
+  plot(x = date(poc_output_10.df$short_date), y = poc_output_10.df[[i]], type ='l', ylab = "Expected Value",xlab = "Date", main = i)
+  lines(x = date(poc_output_200.df$short_date),y = poc_output_200.df[[i]], type ='l', col = 'red')
+  legend(x = 'topright', legend=c(paste0(short_time,label),paste0(long_time, label)),
+       col=c("black", "red"), lty=1)
+}
+```
+
+#POC codes most increasing in usage
+```{r echo = FALSE}
+getting_worse_ <- getting_worse
+rownames(getting_worse_)<-NULL
+knitr::kable(getting_worse_)
+```
+
+```{r echo=FALSE}
+for(i in colnames(getting_worse)){
+  #print(i)
+  plot(x = date(poc_output_10.df$short_date), y = poc_output_10.df[[i]], type ='l',ylab = "Expected Value",xlab = "Date",main = i)
+  lines(x = date(poc_output_200.df$short_date),y = poc_output_200.df[[i]], type ='l', col = 'red')
+  legend(x = 'topright', legend=c(paste0(short_time,label),paste0(long_time, label)),
+       col=c("black", "red"), lty=1)
+}
+```
