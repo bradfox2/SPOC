@@ -1,7 +1,7 @@
 # Smart Performance Objective and Criteria Coding (SPOC)
 Automated Application of the INPO Performance Objective and Criteria Codes
 
-#License
+# License
 
 ```
 Copyright (C) Arizona Public Service - All Rights Reserved 
