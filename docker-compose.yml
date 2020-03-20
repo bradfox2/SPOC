@@ -8,6 +8,3 @@ services:
     image: pv/spoc:1.0
     volumes:
     - ./SPOC:/usr/SPOC/
-    #- logvolume01:/var/log
-    #links:
-    #- redis
