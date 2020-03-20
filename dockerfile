@@ -5,7 +5,7 @@ RUN apt-get update
 # install Python!
 RUN apt-get install -y python python-pip
 RUN pip install --upgrade pip
-RUN pip install --upgrade tensorflow keras  --ignore-installed six
+RUN pip install -r requirements.txt
 RUN mkdir -p /usr/SPOC
 VOLUME /usr/SPOC/
 #ADD SPOC /usr/SPOC/
