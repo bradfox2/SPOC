@@ -35,6 +35,8 @@ This repo contains products produced during the SPOC hackathon at APS/Palo Verde
     *	Install Docker from docker.com
     *	Follow Docker Setup Instructions for creating Docker image
     *	Move SPOC files into Docker container and run via container command line
+    or 
+    *   In repo, `docker-compose up`
 
   OR 
 
